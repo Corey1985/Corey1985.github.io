@@ -1,9 +1,9 @@
 /**
 * VARIABLES:
 *
-* 0. To hold things in memory during the life-cycle of a program, we can use variables.  Variables are named identifiers that can point to values of a particular 
-* type, like a Number, String, Boolean, Array, Object or another data-type.  Variables are called so because once created, we can CHANGE the value (and type of value)
-* to which they point.
+* 0. To hold things in memory during the life-cycle of a program, we can use variables.  Variables are named identifiers that can point to values of 
+* a particular type, like a Number, String, Boolean, Array, Object or another data-type.  Variables are called so because once created, we can CHANGE 
+* the value (and type of value) to which they point.
 *
 * 1. To create a variable we use the keyword (var, let or const) followed by a name (id or alias) for our variable. 
 *
