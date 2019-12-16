@@ -21,61 +21,59 @@
 //Examples//
 //1. While //
 	//Assuming: 
-      var i = 0;
-			while (i <= 15) {	 
-  			console.log("The number is " + i + " while forward");  
-  			i+=5;			   
-			}                   
-/*”i” is the starting point, “<=” evaluates if i is less than or equal to 15, and 15 is the value of the stopping point. The console.log() in curly braces is the code 
-*that runs each iteration and prints the value of the string "The number is " concatenated to the incremented value concatenated to "while foward. 
-*On the next line is the incremnter which determines what *the value is to be incremented by. In this case it is 5.
-*/
+var i = 0;
+	while (i <= 15) {	 
+  		console.log("The number is " + i + " while forward");  
+  		i+=5;			   
+		}                   
+  /*”i” is the starting point, “<=” evaluates if i is less than or equal to 15, and 15 is the value of the stopping point. The console.log() in curly braces is the code 
+  *that runs each iteration and prints the value of the string "The number is " concatenated to the incremented value concatenated to "while foward. 
+  *On the next line is the incremnter which determines what *the value is to be incremented by. In this case it is 5.
+  */
 
 	//Assuming: 
-      var y = 20;
-   			   while (y >= 0) {		
-			   console.log("The number is " + y + " while backward ");
-			   y-=6;                   
-   			   }
-/*
-*”i” is the starting point, “>=” evaluates if i is greater than or equal to 10, and 10 is also the value of the stopping point. The console.log() in curly braces is 
-*the code that runs during each iteration and prints the value of the string "The number is " concatenated to the decremented value concatenated to " while backward ". 
-*On the next line is the decrementer which determines what the value is to be decremented by. In this case it is 3.
-*/            
+var y = 20;
+   	while (y >= 0) {		
+	   console.log("The number is " + y + " while backward ");
+	   y-=6;                   
+	   }
+  /*
+  *”i” is the starting point, “>=” evaluates if i is greater than or equal to 10, and 10 is also the value of the stopping point. The console.log() in curly braces is 
+  *the code that runs during each iteration and prints the value of the string "The number is " concatenated to the decremented value concatenated to " while backward ". 
+  *On the next line is the decrementer which determines what the value is to be decremented by. In this case it is 3.
+  */            
                             
 
 //2. For //
-	var cars = ['BMW', 'Volvo', 'Mini'];
+var cars = ['BMW', 'Volvo', 'Mini'];
   /*
   *An array with the variable cars1.
   */
-		for (i = 0; i < cars.length; i++) {	
- 			 console.log(cars[i]);		
-			}						
+	for (i = 0; i < cars.length; i++) {	
+ 		console.log(cars[i]);		
+		}						
   /*
   *for loop starting at zero index, iterating till it reaches the length of cars array, and incrementing by 1 each time
   */	
-			for (i = cars.length -1; i >= 0; i--) {		
- 			 console.log(cars[i]);				
-			}	
+	for (i = cars.length -1; i >= 0; i--) {		
+		console.log(cars[i]);				
+		}	
   /*
   *for loop starting at the last index, iterating till it reaches the zero index of cars array, and decremementing by 1 each time
   */								
       				
-
-
 //3. For / in //
-	var person = {firstName:"Tim", lastName:"Tam", age:75};	
+var person = {firstName:"Tim", lastName:"Tam", age:75};	
   /*
   *An object with key & value pairs
   */
-	var print1 = "";						    		
+var print1 = "";						    		
   /*
   *Where our value is placed per iteration.
   */												
-		for (let x in person) {							
-		 console.log(print1 += person[x] + " ");
-			}                           
+	for (let x in person) {							
+	console.log(print1 += person[x] + " ");
+	}                           
   /*
   *Each iteration is added to text1 then printed as below.
   *Tim 
@@ -84,13 +82,13 @@
   */      
 
 
-	let print2 = "";	
+let print2 = "";	
   /*
   *Where each iteration of the loop will be placed.
   */								
-		for(let y in person) {							
-			console.log(print2 += person + " ");		
-			}                                       
+	for(let y in person) {							
+		console.log(print2 += person + " ");		
+		}                                       
   /*
   *Each iteration is added to text2 then printed as below. Since y is not in brackets after the named object, only objects will be printed
   *[Object Object] 
