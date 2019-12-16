@@ -15,7 +15,7 @@
 *
 * 3. “For-in” loops iterate through the properties of an object. To make a for-in loop you need to use the key word "for" followed by open parentheses, a starting 
 *variable, the key word in and the name of the object to iterate through followed by closing parentheses. Next is open curly braces followed by the code to be run, 
-semicolon, and finally the closing curly braces.
+*semicolon, and finally the closing curly braces.
 */
 
 //Examples//
@@ -26,7 +26,9 @@ semicolon, and finally the closing curly braces.
   			console.log("The number is " + i + " while forward");  
   			i+=5;			   
 			}                   
-/*”i” is the starting point, “<=” evaluates if i is less than or equal to 15, and 15 is the value of the stopping point. The console.log() in curly braces is the code that runs each iteration and prints the value of the string "The number is " concatenated to the incremented value concatenated to "while foward. On the next line is the incremnter which determines what the value is to be incremented by. In this case it is 5.
+/*”i” is the starting point, “<=” evaluates if i is less than or equal to 15, and 15 is the value of the stopping point. The console.log() in curly braces is the code 
+*that runs each iteration and prints the value of the string "The number is " concatenated to the incremented value concatenated to "while foward. 
+*On the next line is the incremnter which determines what *the value is to be incremented by. In this case it is 5.
 */
 
 	//Assuming: 
@@ -35,7 +37,10 @@ semicolon, and finally the closing curly braces.
 			   console.log("The number is " + y + " while backward ");
 			   y-=6;                   
    			   }
-/*”i” is the starting point, “>=” evaluates if i is greater than or equal to 10, and 10 is also the value of the stopping point. The console.log() in curly braces is the code that runs during each iteration and prints the value of the string "The number is " concatenated to the decremented value concatenated to " while backward ". On the next line is the decrementer which determines what the value is to be decremented by. In this case it is 3.
+/*
+*”i” is the starting point, “>=” evaluates if i is greater than or equal to 10, and 10 is also the value of the stopping point. The console.log() in curly braces is 
+*the code that runs during each iteration and prints the value of the string "The number is " concatenated to the decremented value concatenated to " while backward ". 
+*On the next line is the decrementer which determines what the value is to be decremented by. In this case it is 3.
 */            
                             
 
@@ -64,12 +69,12 @@ semicolon, and finally the closing curly braces.
   /*
   *An object with key & value pairs
   */
-	var text1 = "";						    		
+	var print1 = "";						    		
   /*
   *Where our value is placed per iteration.
   */												
 		for (let x in person) {							
-		 console.log(text1 += person[x] + " ");
+		 console.log(print1 += person[x] + " ");
 			}                           
   /*
   *Each iteration is added to text1 then printed as below.
@@ -79,12 +84,12 @@ semicolon, and finally the closing curly braces.
   */      
 
 
-	let text2 = "";	
+	let print2 = "";	
   /*
   *Where each iteration of the loop will be placed.
   */								
 		for(let y in person) {							
-			console.log(text2 += person + " ");		
+			console.log(print2 += person + " ");		
 			}                                       
   /*
   *Each iteration is added to text2 then printed as below. Since y is not in brackets after the named object, only objects will be printed
