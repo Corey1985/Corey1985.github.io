@@ -49,7 +49,8 @@ function countChars(string, letter) {
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 //count the upper case B's in the string
-
+//use a number starting at 0 to hold the number to be incremented for each B
+//return the number
 function countBs(string) {
   let stringCount = 0; 
   for(let i = 0; i < string.length; i++){

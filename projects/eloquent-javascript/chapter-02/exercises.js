@@ -55,20 +55,20 @@ example:
 */
 
 function drawChessboard(num) {
-  var check = "".repeat(num);
-        for(var i = 0; i < num; i++){
-             for(var j = 0; j < num; j++){
-    if((j % 2) === (i % 2)){
-        check +=  " "; 
-        }
-    else{
-        check += "#";
-        }
+  var board = "";
+  for (var y = 0; y < num; y++) {
+    board += "";
+    for (var x = 0; x < num; x++) {
+      if ((x + y) % 2 == 0)
+        board += " ";
+      else
+        board += "#";
     }
-        check += "\n";
-    }
-    console.log(check);
-} 
+    board += "\n";
+  }
+  console.log(board);
+}
+ 
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////

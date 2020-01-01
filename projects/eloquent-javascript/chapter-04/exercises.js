@@ -81,11 +81,15 @@ function arrayToList(array){
 ////////////////////////////////////////////////////////////////////////////////
 //loop through an object and add its values to a new array
 //use a for in loop
+//return the new array
+//the list has a nested object
 
 function listToArray(list) {
+  // return Object.values(list);
   let newArr = [];
-  for(let key in list){
-    newArr.push(list[key]);
+   for (list; list; list = list.rest){ 
+    newArr.push(list.value);
+  
   }
   return newArr;
 }
@@ -93,26 +97,59 @@ function listToArray(list) {
 ////////////////////////////////////////////////////////////////////////////////
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function prepend() {
-
+//insert a value into a list BEFORE other elements in the list
+function prepend(value, objList) {
+  return {value: value, rest: objList};
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+//if number does not exist in the given position in the list return undefined
+//return the position of the given number in the list
 
-function nth() {
-
+function nth(list, numberPosition) {
+  if(!list){
+    return undefined;
+  }
+  else if (numberPosition === 0) {
+    return list.value;
+  }
+  else{
+    return nth(list.rest, numberPosition -= 1);
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+//should compare if two objects are the same 
+//should compare if two numbers are equal
+//compare if 2 falsey values are the same
+//return a boolean value
+function deepEqual(object1, object2) {
+  if (object1 === object2) {
+    return true;
+  }
+  else if ((typeof object1 === "object" && object1 !== null) && (typeof object2 === "object" && object2 !== null)) {
+    if (Object.keys(object1).length !== Object.keys(object2).length)
+      return false;
+    for (var property in object1) {
+      if (object2.hasOwnProperty(property))
+      {  
+        if (!deepEqual(object1[property], object2[property]))
+          return false;
+      }
+      else
+        return false;
+    }
 
-function deepEqual() {
-
+    return true;
+  }
+  else 
+    return false;
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
