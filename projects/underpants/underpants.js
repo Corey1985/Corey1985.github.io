@@ -85,17 +85,16 @@ _.typeOf = function(value){
 */
 
 //function accepts an array and a number
-//if array is not an array return an empty array literal
+//if array is not an array datatype or is empty return an empty array literal
 //if number is not given return the first element in array
 //if both exist return the first element(s) of the array that exists
-//if number is a an empty array literal
-//if number is greater array
+//if number is greater array return the whole array
 _.first = function(array, number){
     let empty = [];
         if(!Array.isArray(array)){
             return empty;
         }
-        else if(typeof(number) !== "number" || !number || number === undefined || number === null){
+        else if(typeof(number) !== "number" || number === undefined || number === null){
             return array[0];
         }
         else if(number < 0){
@@ -131,10 +130,9 @@ _.first = function(array, number){
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 //function accepts an array and a number
-//if array is not an array return an empty array literal
+//if array is not an array datatype or is not given return an empty array literal
 //if number is not given return the last element in array
-//if number is a an empty array literal
-//if number is greater array
+//if number is greater than array return the whole array
 //if both exist return the last element(s) of the array that exists
 _.last = function(array, number){
     let empty = [];
@@ -225,8 +223,8 @@ _.contains = function(array, value){
 //if it is an array use a for loop
 //if it is an object use a for in loop
 //in either case iterate and call the function parameter function on the element, index, and collection.
-_.each = function(collection, func){
-    if(Array.isArray(collection)) {
+_.each = function (collection, func){
+  if(Array.isArray(collection)) {
         for(var i = 0; i < collection.length; i++) {
             func(collection[i], i, collection);
         }
@@ -251,17 +249,14 @@ _.each = function(collection, func){
 //use _.indexOf() 
 _.unique = function(array){
     let uniqueArr = [];
-    for(let i = 0; i < array.length; i++){
-        if(_.indexOf(array(i)) !== array(i)){
-            null;
-        }
-        else{
-            uniqueArr.push(i);
-        }
-    }
-    return uniqueArr;
-    
+     for(let i = 0; i < array.length; i++){ 
+    if (_.indexOf(array, array[i]) === i){
+      uniqueArr.push(array[_.indexOf(array, array[i])]); 
+      } 
+  }
+  return uniqueArr;
 };
+
 
 /** _.filter
 * Arguments:
@@ -278,6 +273,20 @@ _.unique = function(array){
 * Extra Credit:
 *   use _.each in your implementation
 */
+//takes an array and a function
+//using _.each if the function returns true put it into a new array
+//if false do nothing
+//return the array of true elements
+_.filter = function(array, func){
+  let truthy = [];
+ _.each(array,function(value,index,array){
+        if(func(value,index,array) === true){
+            truthy.push(value);
+        }
+    });
+        return truthy;
+};
+
 
 
 /** _.reject
@@ -292,6 +301,20 @@ _.unique = function(array){
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+//takes an array and a function
+//must use _.filter
+//if false add it the new array
+//return the array of false elements
+_.reject = function(array, func){
+  var falsy = [];
+      _.filter(array, function(value,index,array){
+          if(func(value,index,array) === false){
+              falsy.push(value);
+          }
+      });
+    return falsy;
+};
 
 
 /** _.partition
@@ -312,6 +335,26 @@ _.unique = function(array){
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+//takes an array and a function 
+//for each value that is even put it into a truthy array
+//for each odd value put it in a falsy array
+//return both arrays (seperated) per array inside of another array
+_.partition = function(array, func){
+    var wholeArr = [];
+    var truthy = [];
+    var falsy = [];
+      _.filter(array, function(value,index,array){
+          if(func(value,index,array) !== true){
+              falsy.push(value);
+          }
+          else{
+              truthy.push(value);
+          }
+          
+      });
+    wholeArr.push(truthy, falsy);
+    return wholeArr;
+};
 
 
 /** _.map
@@ -329,7 +372,17 @@ _.unique = function(array){
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+//function takes a collection and a function
+//iterate through the collection and put the value in a new array
+//must be able to iterate arrays or objects
+//return the new array
+_.map = function(collection, func){
+    let newArr = [];
+     _.each(collection, function(element, index, collection){
+         newArr.push(func(element, index, collection));
+     });
+    return newArr;
+};
 
 /** _.pluck
 * Arguments:
@@ -341,6 +394,14 @@ _.unique = function(array){
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+///takes an array containing objects
+//a property to compare
+//return the values of the keys
+_.pluck = function(array, value){
+    return _.map(array, function(element, index, collection){
+        return element[value];
+    });
+};
 
 
 /** _.every
@@ -363,6 +424,26 @@ _.unique = function(array){
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+//takes an object or array and a function to compare it
+//if the value is not true for any  the collection return false
+//return true if every element is true
+_.every = function(collection, func){
+    let result = true;
+    if(func === undefined){
+  _.each(collection, (element) => {
+      if(!element){
+          result = false;
+      }
+  });
+} else {
+  _.each(collection, (element, index, collection) => {
+      if(!func(element, index, collection)){
+          result = false;
+      }
+  });
+}
+  return result;
+};
 
 
 /** _.some
@@ -385,6 +466,27 @@ _.unique = function(array){
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
+//takes an object or array and a function to compare it
+//if the value equals true for any value in the collection return true
+//return false if all are not true
+_.some = function(collection, func){
+    let result = false;
+    if(func === undefined){
+  _.each(collection, (element) => {
+      if(element){
+          result = true;
+      }
+  });
+} else {
+  _.each(collection, (element, index, collection) => {
+      if(func(element, index, collection)){
+          result = true;
+      }
+  });
+}
+  return result;
+};
+  
 
 
 /** _.reduce
@@ -405,6 +507,16 @@ _.unique = function(array){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
+//takes an array, a function, and a seed(a default starting value that may be incremented)
+//use a number for your seed/startValue
+//return the final number iterated
+_.reduce = function(array, func, seed){
+    let startValue = seed === undefined ? 1 : seed;
+    for(let i = 0; i < array.length; i++){
+         startValue = func(startValue, array[i], i, array);
+    }
+    return startValue;
+};
 
 
 /** _.extend
@@ -421,7 +533,19 @@ _.unique = function(array){
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+//takes one object that other objects may be added into
+//should accept any number of arguments using a spread operator 
+//for loop iterates through the array created by the spread operator
+//for in loop iterates trough the main object 
+//return the object with its new values inside
+_.extend = function(obj1, ...objects){
+    for (let i = 0; i < objects.length; i++){
+        for(let key in objects[i]){
+            obj1[key] = objects[i][key];
+        }
+    }
+    return obj1;
+};
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
