@@ -21,76 +21,76 @@
 //Examples//
 //1. While //
 	//Assuming: 
-var i = 0;
-	while (i <= 15) {	 
-  		console.log("The number is " + i + " while forward");  
-  		i+=5;			   
-		}                   
-  /*”i” is the starting point, “<=” evaluates if i is less than or equal to 15, and 15 is the value of the stopping point. The console.log() in curly braces is the code 
-  *that runs each iteration and prints the value of the string "The number is " concatenated to the incremented value concatenated to "while foward. 
-  *On the next line is the incremnter which determines what *the value is to be incremented by. In this case it is 5.
-  */
+      let i = 0;
+			while (i <= 150) {	 
+  			console.log(i + " bottles of beer on the wall!");  
+  			i+=20;			   
+			}                   
+/*”i” is the starting point, “<=” evaluates if i is less than or equal to 150 at which point it stops iterating. The console.log() in curly braces is the code 
+*that is run each iteration and prints the value of the string i (as a number) concatenated to "bottles of beer on the wall!" On the next line is the incremnter which 
+*determines what the value is to be incremented by. In this case it is 20.
+*/
 
 	//Assuming: 
-var y = 20;
-   	while (y >= 0) {		
-	   console.log("The number is " + y + " while backward ");
-	   y-=6;                   
-	   }
-  /*
-  *”i” is the starting point, “>=” evaluates if i is greater than or equal to 10, and 10 is also the value of the stopping point. The console.log() in curly braces is 
-  *the code that runs during each iteration and prints the value of the string "The number is " concatenated to the decremented value concatenated to " while backward ". 
-  *On the next line is the decrementer which determines what the value is to be decremented by. In this case it is 3.
-  */            
+      let minute = 60;
+   			   while (minute >= 0) {		
+			   console.log(minute + " seconds");
+			   minute -= 10;                   
+   			   }
+/*
+*”minute” is the starting point, “>=” evaluates if minute is greater than or equal to 60, and 0 is the value of the stopping point. The console.log() in curly braces is 
+*the code that runs during each iteration and prints the value of the value of minute per decrement concatenated to " seconds". On the next line is the decrementer 
+*which determines what the value is to be decremented by per iteration. In this case it is 10.
+*/            
                             
 
 //2. For //
-var cars = ['BMW', 'Volvo', 'Mini'];
+	var localCities = ['Chalmette', 'Slidell', 'Meraux', 'New Orleans', 'Kenner'];
   /*
-  *An array with the variable cars1.
+  *An array with the variable localCities.
   */
-	for (i = 0; i < cars.length; i++) {	
- 		console.log(cars[i]);		
-		}						
+		for (let a = 0; a < localCities.length; a++) {	
+ 			 console.log("a " + localCities[a]);		
+			}						
   /*
-  *for loop starting at zero index, iterating till it reaches the length of cars array, and incrementing by 1 each time
+  *for loop starting at zero index, iterating till it reaches the length of localCities.array, and incrementing by 1 each time.
   */	
-	for (i = cars.length -1; i >= 0; i--) {		
-		console.log(cars[i]);				
-		}	
+			for (let b = localCities.length - 1; b >= 0; b-=2) {		
+ 			 console.log(localCities[b] + " b");				
+			}	
   /*
-  *for loop starting at the last index, iterating till it reaches the zero index of cars array, and decremementing by 1 each time
+  *for loop starting at the last index, iterating till it reaches the zero index of localCities array, and decremementing by 2 each time.
   */								
       				
+
+
 //3. For / in //
-var person = {firstName:"Tim", lastName:"Tam", age:75};	
+	var mountain = {name:"Mount Everest", height:"29,035 ft", location: "Himalayas"};	
   /*
   *An object with key & value pairs
   */
-var print1 = "";						    		
+	var valuesOnly = [];						    		
   /*
-  *Where our value is placed per iteration.
+  *Where mountain value is placed per iteration.
   */												
-	for (let x in person) {							
-	console.log(print1 += person[x] + " ");
-	}                           
+		for (let c in mountain) {							
+		 valuesOnly.push(mountain[c]);
+			}
+  console.log(valuesOnly);  // [ 'Mount Everest', '29,035 ft', 'Himalayas' ]                         
   /*
-  *Each iteration is added to text1 then printed as below.
-  *Tim 
-  *Tim Tam 
-  *Tim Tam 75 
+  *Each value is pushed into valuesOnly
   */      
 
 
-let print2 = "";	
+	let aString = "";	
   /*
   *Where each iteration of the loop will be placed.
   */								
-	for(let y in person) {							
-		console.log(print2 += person + " ");		
-		}                                       
+		for(let y in mountain) {							
+			console.log(aString += mountain + " ");		
+			}                                       
   /*
-  *Each iteration is added to text2 then printed as below. Since y is not in brackets after the named object, only objects will be printed
+  *Each iteration is added to aString then printed as below. Since y is not in brackets after the named object (mountain), only objects will be printed.
   *[Object Object] 
   *[Object Object] [Object Object]
   *[Object Object] [Object Object] [Object Object]

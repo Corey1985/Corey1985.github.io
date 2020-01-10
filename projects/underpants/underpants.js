@@ -510,14 +510,20 @@ _.some = function(collection, func){
 //takes an array, a function, and a seed(a default starting value that may be incremented)
 //use a number for your seed/startValue
 //return the final number iterated
-_.reduce = function(array, func, seed){
-    let startValue = seed === undefined ? 1 : seed;
-    for(let i = 0; i < array.length; i++){
-         startValue = func(startValue, array[i], i, array);
+_.reduce = function(array, action, seed){
+       let i = 0;
+    let accumulator;
+    if (seed === undefined){
+        accumulator = array[0];
+        i = 1;
+    } else {
+        accumulator = seed;
     }
-    return startValue;
+    for(; i < array.length; i++) {
+        accumulator = action(accumulator, array[i], i, array);
+    }
+    return accumulator;
 };
-
 
 /** _.extend
 * Arguments:
