@@ -3,42 +3,43 @@
 *
 *-//Descriptions//-
 *
-*0. The control flow is the order in which the computer runs statements in the program. Code is run in order from the first line in the code to the 
-*last line (top down and left to right per line) unless the computer runs across structures that change what is accessed, such as conditionals, functions 
-*and loops. 
+*0. Control Flow may be thought of as decisions to be run as certain conditions are met. These decisions are determined starting from top left and ending
+* at bottom right. Some structures such as conditionals, funcions, and loops may access or change earlier parts of the code.
 *
-*1. “If” is used at the begining of an "IF" statement to specify a block of code to be run. If the specified condition evaluates to true it is run. 
-*Otherwise the condition is evaluated to false, not run, and continues to the next statement.
+*1. "If" is used at he begining of an if-else if-else statement; which is usually inside of a function. If the expression inside of the parentheses is true
+*then its associated code block is run. Though if the expression is false the code will continue onto the next expression in the chain.
 *
-*2. “Else if” specifies the next condition to test (if the previous statement was not run). It is used after "IF" but before "Else". With the assumption 
-*that the statement is true it is run, if false it is not run. 
+*2. “Else if” is similar to "If" with the difference being that it is used in the middle of a chain and the amount of them could range from 0 to an almost 
+*unlimited amount. It is used after "IF" but before "Else". Assuming the statement is true it is run, if false it is not run. 
 *
-*3. “Else” is used at the end of a block of code to be executed, if the previous conditions were false and all of the previous statements were not run.
-*It does not require a conditional to evaluate, only a block of code in curly braces {} to run.
+*3. “Else” is used at the end of the chained statement as a default. If all previous statements are false this will be run. It does not use a conditional
+*to evaluate, only a block of code to be run in curly braces {}.
 *
-*4. “Switch” is used to specify many alternative blocks of code to be executed. The switch expression is evaluated once. The value of the expression
-*is compared with the values of each case. If there is a match, the associated block of code is executed.
+*4. "Switch" can be used to determine blocks of code to be run in a similar way to an "if-else if-else" statement. The value of an expression is coompared
+*with the values of each case. If the case mathches is true, the code before break is run. If all are false the code associated with "default" is run.
+*
 */
 
 //Examples//
 //0. If-else if-else Statement in a function //
   // Using the below function as an example
 function time(hour) {
+  let meal = null;
   if (hour < 6){            	
   /*
-  *if true thsi code block is run 
+  *if true this code block is run 
   */
   	meal = "Breakfast";		
   } else if (hour < 12){     	
   /*
-  *if true thsi code block is run 
+  *if true this code block is run 
   */
-	meal = "Lunch";
+	  meal = "Lunch";
   } else if (hour < 20){        
-  /*
-  *if true thsi code block is run 
+ /*
+  *if true this code block is run 
   */ 
-	meal = "Dinner";
+	  meal = "Dinner";
   }
     else {                
   /*
@@ -46,11 +47,11 @@ function time(hour) {
   */ 
   	meal = "Cookies";
   }
-  return meal 		  
+  return meal; 		  
   /*
   *returns the code that evaluates to true
   */
-};
+}
 
 //1. If statement //
   console.log(time(5));	  //prints => Breakfast
