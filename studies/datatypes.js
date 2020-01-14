@@ -6,46 +6,43 @@
 * 0. JavaScript variables can hold many types of data, which can be Numbers, NaN, infinity/-infinity, Strings, Booleans, Arrays, Objects, functions, 
 *Undefined, and Null. Also JavaScript indexes some variables (such as strings and arrays) starting at zero(0).
 * 
-* 1. Numbers are any numerical value. These values can be used in arithmetic expressions to create new values. The number type represents either
-*integer or floating point numbers. There are many operations for numbers, i.e. multiplication *, division /, addition +, subtraction -, and so on. 
-*Besides regular numbers, there are so-called “special numeric values” which also belong to this data type: NaN, Infinity, and -Infinity. 
+* 1. Numbers are any negative or positive numerical value. These values can be used in arithmetic expressions to create different values. There are many
+*operations for numbers; ranging from subtraction (-) to addition(+), multiplication (*), division(/), and others. 
+*Other than regular numbers, there are values called “special numeric values” which also belong to this data type: NaN, Infinity, and -Infinity. 
 *
-* 2. NaN represents a computational error. It is a result of an incorrect or an undefined mathematical operation. NaN is sticky. Any further 
-*operation on NaN returns NaN.
+* 2. NaN is a computational error. It happens when an incorrect or an undefined mathematical operation is run. Excluding reassignment, NaN is sticky. 
+*Any other operation on NaN returns NaN.
 *
-* 3. Infinity or -Infinity represents the mathematical Infinity ∞. It is a special value that’s greater than any number.
+* 3. Infinity or -Infinity represents the mathematical Infinity ∞. It is a special value that’s greater than or less than any number. As an immeasurable 
+*number, javaScript cannot define it beyond its named value.
 *
-* 4. Strings are a collection of characters and/or symbols surrounded by quotes ('single' or "double" quotation marks).
-* We can access individual characters in a string with bracket notation and in some instances dot notation.
+* 4. Strings are characters and/or symbols surrounded by 'single' or "double" quotation marks. Individual characters in a string can be accessed with bracket 
+*notation. The length may be accessed using .length.
 *
-* 5. Booleans have a true or false value. They are sort of like on/off switches which are typically used in conditional statements. 
+* 5. Booleans are a true or false value. They are sort of like on/off switches and are typically used in conditional statements or returns. 
 *They can be created with a Boolean expression using comparison operators.
 *
-* 6. An Array literal “[]” is a complex data type that is used to store multiple different data types in large amounts. Arrays start at the 
-*zero index on the first value, 1 on the second, 2 on the third, etc... . Arrays can contain references to any other data type which includes 
-*strings, numbers, Booleans, other arrays, objects, and even functions. Each value is separated by an ','. Arrays can be accessed 
-*using array methods such as push(), pop(), shift(), or unshift(). 
+* 6. One of a few complex data types is an array ([]). These are used to store any amount of any kind of data type in an indexed list, starting at 0.
+*These data types include strings, numbers, Booleans, other arrays, objects, and even functions. Each indexed value is separated by a comma (,). 
+*Arrays can be accessed or altered using array methods such as push(), pop(), shift(), or unshift() or bracket notation. 
 *
-* 7. Objects are similar to arrays but instead of an indexed value the values are stored in a 'key: value' pair. Like arrays, objects are complex 
-*a datatype. Like arrays objects can store multiple datatypes. Unlike arrays, Objects do not have a length property. Arrays can be contained in 
-*objects along with simple data types like strings, numbers, & Booleans.  
+* 7. Another form of complex data type is an object ({}). The difference between an array and object is that an array is an organized indexed list and
+*an object has key/value pairs. The key is always a string but the value may be any data type. Objects may be accessed using bracket ([]) or dot notation (.). 
 *
-* 8. Undefined is a special value that makes its own type. The meaning of undefined is “value is not assigned”. If a variable is declared, but 
-*not assigned, then its value is undefined.
+* 8. Undefined is a special value that makes its own type and value. The meaning of undefined is “value is not assigned”. If a variable is declared, but 
+*not assigned, then its value is undefined. This may also happen if a value is deleted or remobed from where it is expeced to be.
 *
-* 9. Null is just a special value which represents “nothing” or “empty”. Null expresses the lack of identification. It is a primative value and
-*is treated as falsy for boolean operations.
+* 9. Null is another type of special value. It represents nothing or empty. It represents the lack of identification. Not only is it a primitive value it
+*is also considered a falsy boolean value.
 *
-* 10. A functions is a reusable block of code designed to perform a particular task when it is activated. It is executed when "something" invokes it 
-*(calls it). A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses (). Function names can contain 
-*letters, digits, underscores, and dollar signs (same rules as variables). The parentheses may include parameter names separated by commas:
-*(parameter1, parameter2, ...). The code to be executed, by the function, is placed inside curly brackets: {}
+* 10. A function is a block of code designed to perform the same action when called. It is only active if it is called by its name. A javaScript function 
+*is a reusable block of code which (as a declaration) has the keyword function, followed by a lowerCase name. After the name, parentheses () with optional 
+*parameters inside of them are placed. These parameters are placeholders for arguments that may be in the function call. Next comes curly braces {} with 
+*the block of code to be run.
 *
-* 11. Simple/primitive data types are data that is not an object and has no methods. If a primitive type is assigned to a variable, we can think of 
-*that variable as containing the primitive value. There are 7 primitive data types: string, number, bigint, boolean, null, undefined, and symbol. 
-*All primitives are immutable, i.e., they cannot be altered. It is important not to confuse a primitive itself with a variable assigned a primitive value. 
-*The variable may be reassigned a new value, but the existing value can not be changed in the ways that objects, arrays, and functions can be altered. 
-*A complex data type takes other data types and combines or alters a copy by referring to another variable. 
+* 11. Simple or primitive datatypes are immutable and not able to be altered. Unlike arrays an objects these datatypes only have one value and though simple datatypes 
+*may be reassigned they are never changed. A complex datatype (such as an array, object or function) may either hold or refer to a simple datatype. The 7 simple datatypes
+*include: string, number, bigint, boolean, null, undefined, and symbol.
 *
 */
 
@@ -53,11 +50,11 @@
 //1. Numbers//
 var integer = 4985;
  /*
- *The value of the variable interger is a whole number 
+ *The value of the variable interger is a whole number.
  */
 var floatingPoint  = 49.38; 
  /*
- *The value of the variable floatingPoint has a decimal point which denotes a floating point number
+ *The value of the variable floatingPoint has a decimal point which denotes a floating point number.
  */
 var arithmetic = 10 + 5; 
  /*

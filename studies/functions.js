@@ -2,28 +2,30 @@
 *	Functions
 *-//Descriptions//-
 *
-* 0. Functions are reusable blocks of code that accept arguments, process those arguments, and returns the new data value. There are four parts to a 
-*function declaration:  name, parameter(s), function body (where the code runs), and return statement.  
+* 0. Functions are a way of shortening code as they are able to be used over and over again. They accept (optional) arguments, process the arguments as intended, 
+*then return a value. There are four parts to creating a function. Each type of function has a keyword or symbol describing it as a function, optional parameters,
+*a body where the code runs, and usually a return statement.
 *
 * 1. Functions may OPTIONALLY take parameters and/or arguments.  Parameters are placeholders for arguments (which are listed inside closed parentheses 
 *after the functions' name)that are later PASSED or given to the function at call time. Functions have a return statement that will give value to a function call. 
 *Console.log() may also be used but it only prints what may be returned, it has no actual value. Return statements can be used ONLY in a function body.
 *Javascript lets you call functions omitting some parameters, filling in the other parameters with the value undefined.
 *
-* 2. Functions can be called with its name followed by parentheses containing the optional arguments. Calling a function runs the code in the function body. 
-*A closure is the combination of a function bundled together (enclosed) with references to its parent scope. In other words, a closure gives you access to an 
-*outer function’s scope from an inner function.
+* 2. Funcions are activated by calling them using its name followed by parentheses which enclose any arguments that need to be passed to them. A closure is one or more 
+*functions within another function that access a variable within its parent scope. In other words the nested function (within the parent function) is able to access 
+*the outer scoped variable that outer (non global) scope.
 *
-* 3. Scope determines the accessibility (visibility) of variables within a program. Variables defined inside a function are not accessible from outside the function. 
-*JavaScript variables can belong to the local or global scope. Global variables can be made local (private) with closures. Global variables can be used 
-*(and posibly changed) by all scripts in the code. A local variable can only be used inside the function where it is defined. It is hidden from other functions and
-*other scripting code. Global and local variables with the same name are different variables. Modifying one, does not modify the other.
+* 3. Scope is where a variable or function is visible (or accessible) within the code. Variables are either global or local scoped. When a variable inside a function is 
+*initilized it is not accessible from the global scope. Global variables may be accessed or changed by all scripts in code (with the exception of const declared variables).
+*A local variable may only be accessed within the function it was defined. It is invisible to outer scoped variables and functions. Modifting a local scoped variable
+*does not modify a globaly scoped variable.
 *
-* 4. Functions may be assigned to a variable. Under most circumstances this is not reccomended as it is more wordy than it needs to be. They are also not hoisted to
-*the top of the scope as a function declaration would be. It is usually a better practice to describe a function with the function keyword than a variable. 
+* 4. Function expressions may be assigned to a variable. Not only is this not generally recomended, it takes more time to write, and it is not hoisted like a declaration.
+*They are not hoisted to the top of the global scope as a function declaration would be. Generally it is better to use the function keword and declare it than it is to assign 
+*it to a variable.
 *
-* 5. Arrow functions are anonymous functions that accept a fixed number of arguments. These types of functions operate in the the function or other code where they 
-*are defined. Arrow functions are created using =>.
+* 5. Arrow functions were introduced in ES6. They operate within another function or are assigned to a variable. They are distinguishable by => after parentheses and before
+*curly braces {}. Arrow functions do not need parentheses (), curly braces{}, or a return if they only have one argument and are on one line.
 *
 */
 
@@ -45,9 +47,9 @@
   function area(length, width) {
  		 return length * width;
 		}
-  /*
-  * Function returns the value of a and b
-  */
+    /*
+    * Function returns the value of a and b
+    */
 
 var size = area(2, 4);
   /*
@@ -57,7 +59,6 @@ var size = area(2, 4);
   /*
   *Prints the value of size which is calculated using the called function with the given values
   */
-  
 //1. Optional Parameters & Arguments//
 	function name2(param1, param2, ...params){             		
 			return param1 + "/" +  param2 + "/" + params; 
@@ -80,6 +81,7 @@ var size = area(2, 4);
     	console.log(mph(50,10)); // prints => 5 mph (as a string)
 
 //3. Scope //
+
 	function scopeFunc() {
  			  global = 4;
  			 return global * global;
@@ -87,19 +89,19 @@ var size = area(2, 4);
     console.log(scopeFunc()); //prints => 16
     console.log(global);      //prints => 4
   /*
-  *The "global" variable inside the function is accessible outside of the function because the variable was not locally initilized and was assumed to be global 
-  *(and thereby accessible by outer parent scopes) by the interpreter.
-  */
+   *The "global" variable inside the function is accessible outside of the function because the variable was not locally initilized and was assumed to be global 
+   *(and thereby accessible by outer parent scopes) by the interpreter.
+   */
 
   var d = 5;
 		function scopeFunc2() {
   		return d * d;
 		}				
     console.log(scopeFunc2());//prints => 25
-  /*
-   *A function can also access variables defined outside of itself unless it was initiated in a lower (non global, inside of a different loop or function) scope 
-   *using the let or const key word.
-   */
+    /* 
+    *A function can also access variables defined outside of itself unless it was initiated in a lower (non global, inside of a different loop or function) scope 
+    *using the let or const key word.
+    */
   function scopeFunc3(bobbity){
     let bibbity = "Boo";
     return bibbity + bobbity; 
@@ -120,3 +122,4 @@ var size = area(2, 4);
     const mess = ["tiMe", "iS", "ReLATive"];
     const yellIt = mess.map(word => word.toUpperCase());
     console.log(yellIt); // prints => ['TIME', 'IS', 'RELATIVE']
+

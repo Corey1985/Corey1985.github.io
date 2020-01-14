@@ -24,7 +24,6 @@
 //0. If-else if-else Statement in a function //
   // Using the below function as an example
 function time(hour) {
-  let meal = null;
   if (hour < 6){            	
   /*
   *if true this code block is run 
@@ -34,12 +33,12 @@ function time(hour) {
   /*
   *if true this code block is run 
   */
-	  meal = "Lunch";
+	meal = "Lunch";
   } else if (hour < 20){        
  /*
   *if true this code block is run 
   */ 
-	  meal = "Dinner";
+	meal = "Dinner";
   }
     else {                
   /*
@@ -47,11 +46,11 @@ function time(hour) {
   */ 
   	meal = "Cookies";
   }
-  return meal; 		  
+  return meal 		  
   /*
   *returns the code that evaluates to true
   */
-}
+};
 
 //1. If statement //
   console.log(time(5));	  //prints => Breakfast
